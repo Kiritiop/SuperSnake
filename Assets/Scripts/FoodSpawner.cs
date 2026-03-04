@@ -9,6 +9,7 @@ public class FoodSpawner : MonoBehaviour
     private GameObject currentFood;
 
     void Awake() => Instance = this;
+    void Start() { }
 
     public void SpawnFood(List<Vector2Int> occupiedPositions)
     {
@@ -20,8 +21,9 @@ public class FoodSpawner : MonoBehaviour
     }
     public Vector2Int GetCurrentFoodPosition()
     {
-    if (currentFood != null)
-        return currentFood.GetComponent<FoodItem>().gridPosition;
-    return new Vector2Int(-999, -999);
+        if (currentFood == null) return new Vector2Int(-999, -999);
+        FoodItem item = currentFood.GetComponent<FoodItem>();
+        if (item == null) return new Vector2Int(-999, -999);
+        return item.gridPosition;
     }
 }

@@ -64,7 +64,7 @@ public class SnakeController : MonoBehaviour
         // Wall collision
         if (!GridManager.Instance.IsInsideBounds(newHead))
         {
-            GameManager.Instance.GameOver();
+            if (GameManager.Instance != null) GameManager.Instance.GameOver();
             return;
         }
 
@@ -73,7 +73,7 @@ public class SnakeController : MonoBehaviour
         {
             if (bodyPositions[i] == newHead)
             {
-                GameManager.Instance.GameOver();
+                if (GameManager.Instance != null) GameManager.Instance.GameOver();
                 return;
             }
         }
