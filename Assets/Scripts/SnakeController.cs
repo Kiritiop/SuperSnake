@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public class SnakeController : MonoBehaviour
 {
@@ -41,16 +43,16 @@ public class SnakeController : MonoBehaviour
 
     void HandleInput()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (Keyboard.current.wKey.wasPressedThisFrame || Keyboard.current.upArrowKey.wasPressedThisFrame)
             if (direction != Vector2Int.down) nextDirection = Vector2Int.up;
 
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        if (Keyboard.current.sKey.wasPressedThisFrame || Keyboard.current.downArrowKey.wasPressedThisFrame)
             if (direction != Vector2Int.up) nextDirection = Vector2Int.down;
 
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Keyboard.current.aKey.wasPressedThisFrame || Keyboard.current.leftArrowKey.wasPressedThisFrame)
             if (direction != Vector2Int.right) nextDirection = Vector2Int.left;
 
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (Keyboard.current.dKey.wasPressedThisFrame || Keyboard.current.rightArrowKey.wasPressedThisFrame)
             if (direction != Vector2Int.left) nextDirection = Vector2Int.right;
     }
 
@@ -78,12 +80,6 @@ public class SnakeController : MonoBehaviour
 
         // Check food
         bool ate = (newHead == FoodSpawner.Instance.GetCurrentFoodPosition());
-        PowerUp[] powerUps = FindObjectsByType<PowerUp>(FindObjectsSortMode.None);
-        foreach (var p in powerUps)
-        {
-            if (p.gridPosition == newHead)
-                p.OnCollected(this);
-        }
 
         // Move body
         bodyPositions.Insert(0, newHead);
