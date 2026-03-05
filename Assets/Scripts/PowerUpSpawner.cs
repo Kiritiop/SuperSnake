@@ -25,9 +25,14 @@ public class PowerUpSpawner : MonoBehaviour
     {
         if (activePowerUp != null) Destroy(activePowerUp);
         var snake = FindAnyObjectByType<SnakeController>();
+        if (snake == null) return;
+
         Vector2Int pos = GridManager.Instance.GetRandomPosition(snake.GetBodyPositions());
         int i = Random.Range(0, powerUpPrefabs.Length);
         activePowerUp = Instantiate(powerUpPrefabs[i], new Vector3(pos.x, pos.y, 0), Quaternion.identity);
-        activePowerUp.GetComponent<PowerUp>().gridPosition = pos;
+
+        PowerUp p = activePowerUp.GetComponent<PowerUp>();
+        if (p == null) { Debug.LogError($"{powerUpPrefabs[i].name} is missing its PowerUp script!"); return; }
+        p.gridPosition = pos;
     }
 }

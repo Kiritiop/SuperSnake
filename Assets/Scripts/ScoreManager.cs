@@ -27,9 +27,11 @@ public class ScoreManager : MonoBehaviour
     public void SetMultiplier(int val) => multiplier = val;
     public void ResetMultiplier() => multiplier = 1;
     public int GetScore() => score;
+    void Start() => UpdateUI();
 
     void UpdateUI()
     {
+        
         if (scoreText) scoreText.text = "Score: " + score;
         if (highScoreText) highScoreText.text = "Best: " + highScore;
     }

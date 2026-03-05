@@ -61,14 +61,12 @@ public class SnakeController : MonoBehaviour
         direction = nextDirection;
         Vector2Int newHead = headPosition + direction;
 
-        // Wall collision
         if (!GridManager.Instance.IsInsideBounds(newHead))
         {
             if (GameManager.Instance != null) GameManager.Instance.GameOver();
             return;
         }
 
-        // Self collision (skip tail tip — it will move away)
         for (int i = 0; i < bodyPositions.Count - 1; i++)
         {
             if (bodyPositions[i] == newHead)
@@ -78,29 +76,25 @@ public class SnakeController : MonoBehaviour
             }
         }
 
-        // Check food
-        bool ate = (newHead == FoodSpawner.Instance.GetCurrentFoodPosition());
-
-        // Move body
         bodyPositions.Insert(0, newHead);
-        if (!ate) bodyPositions.RemoveAt(bodyPositions.Count - 1);
-        else
-        {
-            AddBodySegment();
-            ScoreManager.Instance.AddScore(10);
-            FoodSpawner.Instance.SpawnFood(bodyPositions);
-        }
-
+        bodyPositions.RemoveAt(bodyPositions.Count - 1);
         headPosition = newHead;
         UpdateVisuals();
     }
 
-    void AddBodySegment()
+    public void EatFood()
     {
-        GameObject seg = Instantiate(bodyPrefab);
-        bodyObjects.Add(seg);
+        bodyPositions.Add(bodyPositions[bodyPositions.Count - 1]);
+        AddBodySegment();
+        ScoreManager.Instance.AddScore(10);
     }
 
+    void AddBodySegment()
+    {
+        Vector2Int lastPos = bodyPositions[bodyPositions.Count - 1];
+        GameObject seg = Instantiate(bodyPrefab, new Vector3(lastPos.x, lastPos.y, 0), Quaternion.identity);
+        bodyObjects.Add(seg);
+    }
     void UpdateVisuals()
     {
         transform.position = new Vector3(bodyPositions[0].x, bodyPositions[0].y, 0);

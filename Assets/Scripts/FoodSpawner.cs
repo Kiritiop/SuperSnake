@@ -14,6 +14,7 @@ public class FoodSpawner : MonoBehaviour
     public void SpawnFood(List<Vector2Int> occupiedPositions)
     {
         if (currentFood != null) Destroy(currentFood);
+        if (foodPrefab == null) { Debug.LogError("foodPrefab is not assigned!"); return; }
 
         Vector2Int pos = GridManager.Instance.GetRandomPosition(occupiedPositions);
         currentFood = Instantiate(foodPrefab, new Vector3(pos.x, pos.y, 0), Quaternion.identity);

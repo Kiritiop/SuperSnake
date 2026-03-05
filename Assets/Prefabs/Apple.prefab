@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6464134667871980182}
   - component: {fileID: 4051221850723714304}
   - component: {fileID: 7400701773401210359}
+  - component: {fileID: 5328331118602518709}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Untagged
@@ -138,3 +139,16 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &5328331118602518709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3912955708502683832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972b3d63540534e94a0d92ee8c8643d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodItem
+  gridPosition: {x: 0, y: 0}
