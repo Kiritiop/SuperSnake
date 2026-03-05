@@ -260,6 +260,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SnakeController
   bodyPrefab: {fileID: 3189940293477557122, guid: f56d30ccbfcde4e95af09ff845e7610c, type: 3}
   moveInterval: 0.2
+--- !u!50 &211816656
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211816648}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &231603039
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,8 +316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c2d2a756f5842f6b761d879b174132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridManager
-  width: 20
-  height: 20
+  width: 17
+  height: 9
 --- !u!4 &231603041
 Transform:
   m_ObjectHideFlags: 0
@@ -1239,7 +1266,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1460651756}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 163893727}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1460651756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1531,6 +1570,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snake
       objectReference: {fileID: 0}
+    - target: {fileID: 6592869594178489977, guid: cc3f18ac892974039ae0c4c74d9a6f34, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7346812938280407703, guid: cc3f18ac892974039ae0c4c74d9a6f34, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.09
@@ -1578,6 +1621,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6592869594178489977, guid: cc3f18ac892974039ae0c4c74d9a6f34, type: 3}
       insertIndex: -1
       addedObject: {fileID: 211816652}
+    - targetCorrespondingSourceObject: {fileID: 6592869594178489977, guid: cc3f18ac892974039ae0c4c74d9a6f34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 211816656}
   m_SourcePrefab: {fileID: 100100000, guid: cc3f18ac892974039ae0c4c74d9a6f34, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
