@@ -5,11 +5,11 @@ public class ScoreMultiplier : PowerUp
 {
     public override void OnCollected(SnakeController snake)
     {
-        StartCoroutine(ApplyEffect());
+        snake.StartCoroutine(ApplyEffect(snake));
         SelfDestroy();
     }
 
-    IEnumerator ApplyEffect()
+    IEnumerator ApplyEffect(SnakeController snake)
     {
         ScoreManager.Instance.SetMultiplier(2);
         yield return new WaitForSeconds(duration);

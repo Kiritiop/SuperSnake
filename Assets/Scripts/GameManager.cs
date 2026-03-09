@@ -7,7 +7,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverPanel;
 
-    void Awake() => Instance = this;
+    void Awake()
+    {
+        Instance = this;
+        Application.targetFrameRate = 60;
+    }
 
     public void GameOver()
     {

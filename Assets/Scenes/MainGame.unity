@@ -998,6 +998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSpawner
   powerUpPrefabs:
   - {fileID: 5669709928025949700, guid: 9a29b09a4b31c4166bdfa189b0c5459d, type: 3}
+  - {fileID: 5669709928025949700, guid: 821652883c43b4167a665eb99de3565c, type: 3}
   spawnInterval: 10
 --- !u!4 &950720830
 Transform:
