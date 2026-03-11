@@ -6,10 +6,13 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance;
 
     public TMP_Text scoreText;
+
     public TMP_Text highScoreText;
 
     private int score = 0;
+
     private int highScore = 0;
+
     private int multiplier = 1;
 
     void Awake()
@@ -25,13 +28,15 @@ public class ScoreManager : MonoBehaviour
     }
 
     public void SetMultiplier(int val) => multiplier = val;
+
     public void ResetMultiplier() => multiplier = 1;
+
     public int GetScore() => score;
+
     void Start() => UpdateUI();
 
     void UpdateUI()
     {
-        
         if (scoreText) scoreText.text = "Score: " + score;
         if (highScoreText) highScoreText.text = "Best: " + highScore;
     }

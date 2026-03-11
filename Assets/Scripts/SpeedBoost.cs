@@ -5,7 +5,7 @@ public class SpeedBoost : PowerUp
 {
     public override void OnCollected(SnakeController snake)
     {
-        snake.StartCoroutine(ApplyEffect(snake)); // run on snake, not this object
+        snake.StartCoroutine(ApplyEffect(snake));
         SelfDestroy();
     }
 

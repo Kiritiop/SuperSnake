@@ -6,9 +6,17 @@ public class FoodItem : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (!other.CompareTag("Player")) 
+        {
+            return;
+        }
+        
         SnakeController snake = other.GetComponent<SnakeController>();
-        if (snake == null) return;
+        
+        if (snake == null) 
+        {
+            return;
+        }
 
         snake.EatFood();
         FoodSpawner.Instance.SpawnFood(snake.GetBodyPositions());

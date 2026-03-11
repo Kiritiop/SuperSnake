@@ -7,15 +7,21 @@ using UnityEngine.InputSystem;
 public class SnakeController : MonoBehaviour
 {
     [Header("Prefabs")]
+
     public GameObject bodyPrefab;
 
     [Header("Movement")]
+
     public float moveInterval = 0.2f;
 
     private Vector2Int direction = Vector2Int.right;
+
     private Vector2Int nextDirection = Vector2Int.right;
+
     private List<Vector2Int> bodyPositions = new List<Vector2Int>();
+
     private List<GameObject> bodyObjects = new List<GameObject>();
+
     private Vector2Int headPosition;
 
     private float timer;
@@ -25,7 +31,6 @@ public class SnakeController : MonoBehaviour
         headPosition = Vector2Int.zero;
         bodyPositions.Add(headPosition);
         transform.position = new Vector3(headPosition.x, headPosition.y, 0);
-
         FoodSpawner.Instance.SpawnFood(bodyPositions);
     }
 
@@ -44,16 +49,36 @@ public class SnakeController : MonoBehaviour
     void HandleInput()
     {
         if (Keyboard.current.wKey.wasPressedThisFrame || Keyboard.current.upArrowKey.wasPressedThisFrame)
-            if (direction != Vector2Int.down) nextDirection = Vector2Int.up;
+        {
+            if (direction != Vector2Int.down)
+            {
+                nextDirection = Vector2Int.up;
+            }
+        }
 
         if (Keyboard.current.sKey.wasPressedThisFrame || Keyboard.current.downArrowKey.wasPressedThisFrame)
-            if (direction != Vector2Int.up) nextDirection = Vector2Int.down;
+        {    
+            if (direction != Vector2Int.up) 
+            {
+                nextDirection = Vector2Int.down;
+            }
+        }
 
         if (Keyboard.current.aKey.wasPressedThisFrame || Keyboard.current.leftArrowKey.wasPressedThisFrame)
-            if (direction != Vector2Int.right) nextDirection = Vector2Int.left;
+        {
+            if (direction != Vector2Int.right)
+            {
+                nextDirection = Vector2Int.left;
+            }
+        }
 
         if (Keyboard.current.dKey.wasPressedThisFrame || Keyboard.current.rightArrowKey.wasPressedThisFrame)
-            if (direction != Vector2Int.left) nextDirection = Vector2Int.right;
+        {
+            if (direction != Vector2Int.left)
+            {
+                nextDirection = Vector2Int.right;
+            }
+        }
     }
 
     void Move()
@@ -63,16 +88,22 @@ public class SnakeController : MonoBehaviour
 
         if (!GridManager.Instance.IsInsideBounds(newHead))
         {
-            if (GameManager.Instance != null) GameManager.Instance.GameOver();
-            return;
+            if (GameManager.Instance != null) 
+            {
+                GameManager.Instance.GameOver();
+                return;
+            }
         }
 
         for (int i = 0; i < bodyPositions.Count - 1; i++)
         {
             if (bodyPositions[i] == newHead)
             {
-                if (GameManager.Instance != null) GameManager.Instance.GameOver();
-                return;
+                if (GameManager.Instance != null) 
+                {
+                    GameManager.Instance.GameOver();
+                    return;
+                }
             }
         }
 
@@ -111,7 +142,6 @@ public class SnakeController : MonoBehaviour
 
     public List<Vector2Int> GetBodyPositions() => bodyPositions;
 
-    // Called by power-ups
     public void SetMoveInterval(float val) => moveInterval = val;
 
     public void Shrink(int amount)
