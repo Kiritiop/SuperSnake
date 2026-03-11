@@ -152,4 +152,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreMultiplier
   gridPosition: {x: 0, y: 0}
-  duration: 5
+  duration: 10
