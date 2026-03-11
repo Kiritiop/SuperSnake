@@ -5,13 +5,9 @@ using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
     public GameObject gameOverPanel;
-
     public GameObject pauseMenu;
-
     public static bool isPaused = false;
-
     public static bool gameOver = false;
 
     void Awake()

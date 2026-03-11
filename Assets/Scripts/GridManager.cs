@@ -4,7 +4,6 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     public static GridManager Instance;
-
     public int width = 20;
     public int height = 20;
 
@@ -32,7 +31,6 @@ public class GridManager : MonoBehaviour
 
     public bool IsInsideBounds(Vector2Int pos)
     {
-        return pos.x >= -width / 2 && pos.x < width / 2 &&
-               pos.y >= -height / 2 && pos.y < height / 2;
+        return pos.x >= -width / 2 && pos.x < width / 2 && pos.y >= -height / 2 && pos.y < height / 2;
     }
 }
