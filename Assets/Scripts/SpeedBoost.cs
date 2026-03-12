@@ -12,7 +12,7 @@ public class SpeedBoost : PowerUp
     IEnumerator ApplyEffect(SnakeController snake)
     {
         float original = snake.moveInterval;
-        snake.SetMoveInterval(original / 2f);
+        snake.SetMoveInterval(original *1.5f);
         yield return new WaitForSeconds(duration);
         snake.SetMoveInterval(original);
     }
