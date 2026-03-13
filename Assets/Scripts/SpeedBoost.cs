@@ -13,6 +13,7 @@ public class SpeedBoost : PowerUp
     {
         float original = snake.moveInterval;
         snake.SetMoveInterval(original *1.5f);
+        SpeedBoostTimer.Instance.StartTimer(5000);
         yield return new WaitForSeconds(duration);
         snake.SetMoveInterval(original);
     }
