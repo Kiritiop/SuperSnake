@@ -146,14 +146,4 @@ public class SnakeController : MonoBehaviour
     public List<Vector2Int> GetBodyPositions() => bodyPositions;
 
     public void SetMoveInterval(float val) => moveInterval = val;
-
-    public void Shrink(int amount)
-    {
-        for (int i = 0; i < amount && bodyObjects.Count > 0; i++)
-        {
-            Destroy(bodyObjects[bodyObjects.Count - 1]);
-            bodyObjects.RemoveAt(bodyObjects.Count - 1);
-            bodyPositions.RemoveAt(bodyPositions.Count - 1);
-        }
-    }
 }
