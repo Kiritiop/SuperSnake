@@ -26,6 +26,8 @@ public class SnakeController : MonoBehaviour
 
     private float timer;
 
+    [SerializeField] private AudioClip EatSFX;
+
     void Start()
     {
         headPosition = Vector2Int.zero;
@@ -117,6 +119,7 @@ public class SnakeController : MonoBehaviour
     {
         bodyPositions.Add(bodyPositions[bodyPositions.Count - 1]);
         AddBodySegment();
+        SoundEffectManager.instance.PlaySoundEffect(EatSFX, transform, 1f);
         ScoreManager.Instance.AddScore(10);
     }
 

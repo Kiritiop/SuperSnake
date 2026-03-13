@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public static bool isPaused = false;
     public static bool gameOver = false;
+    [SerializeField] private AudioClip CrashSFX;
 
     void Awake()
     {
@@ -20,7 +21,12 @@ public class GameManager : MonoBehaviour
     {
         ScoreManager.Instance.SaveHighScore();
         Time.timeScale = 0f;
-        if (gameOverPanel) gameOverPanel.SetActive(true);
+         SoundEffectManager.instance.PlaySoundEffect(CrashSFX, transform, 1f);
+        if (gameOverPanel) 
+        {
+            gameOverPanel.SetActive(true);
+        }
+        
         gameOver = true;
     }
 

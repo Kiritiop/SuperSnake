@@ -6,6 +6,8 @@ public abstract class PowerUp : MonoBehaviour, ICollectible
 
     public float duration = 5f;
 
+    [SerializeField] private AudioClip PowerupSFX;
+
     public abstract void OnCollected(SnakeController snake);
 
     void OnTriggerEnter2D(Collider2D other)
@@ -21,6 +23,8 @@ public abstract class PowerUp : MonoBehaviour, ICollectible
         {
             return;
         }
+
+         SoundEffectManager.instance.PlaySoundEffect(PowerupSFX, transform, 1f);
         
         OnCollected(snake);
     }

@@ -153,3 +153,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScoreMultiplier
   gridPosition: {x: 0, y: 0}
   duration: 10
+  PowerupSFX: {fileID: 8300000, guid: c8be03f952c0cda428c1b7e492a12b53, type: 3}
