@@ -119,7 +119,7 @@ public class SnakeController : MonoBehaviour
     {
         bodyPositions.Add(bodyPositions[bodyPositions.Count - 1]);
         AddBodySegment();
-        SoundEffectManager.instance.PlaySoundEffect(EatSFX, transform, 1f);
+        SoundEffectManager.instance.PlaySoundEffect(EatSFX, transform, 0.75f);
         ScoreManager.Instance.AddScore(10);
     }
 

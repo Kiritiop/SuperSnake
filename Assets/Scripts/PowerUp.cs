@@ -24,9 +24,12 @@ public abstract class PowerUp : MonoBehaviour, ICollectible
             return;
         }
 
-         SoundEffectManager.instance.PlaySoundEffect(PowerupSFX, transform, 1f);
+         SoundEffectManager.instance.PlaySoundEffect(PowerupSFX, transform, 0.75f);
         
         OnCollected(snake);
     }
-    protected void SelfDestroy() => Destroy(gameObject);
+    protected void SelfDestroy()
+    {
+        Destroy(gameObject);
+    }
 }
