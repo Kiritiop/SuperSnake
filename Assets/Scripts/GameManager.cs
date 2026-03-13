@@ -21,11 +21,7 @@ public class GameManager : MonoBehaviour
     {
         ScoreManager.Instance.SaveHighScore();
         Time.timeScale = 0f;
-<<<<<<< HEAD
-         SoundEffectManager.instance.PlaySoundEffect(CrashSFX, transform, 0.75f);
-=======
-        SoundEffectManager.instance.PlaySoundEffect(CrashSFX, transform, 1f);
->>>>>>> 583a1e2173a86fb95b8b9196a5d4712be9ed62a7
+        SoundEffectManager.instance.PlaySoundEffect(CrashSFX, transform, 0.75f);
         if (gameOverPanel) 
         {
             gameOverPanel.SetActive(true);
